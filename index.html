@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sandboxels Mod Maker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="create_reaction.js"></script>
+    <div class="container">
+        <h1><strong>Sandboxels Mod Maker</strong></h1>
+        Hey there! This is just a simple tool to get started with mods, by just generating some boilerplate code for elements. Any custom logic in the onSelect and tick functions are not supported here. Anyways, <strong>enjoy!</strong>
+        <br><br><br>
+        <select id="element_selector"></select> <button id="new_element">New Element</button> <br>
+        <div id="element">
+            Mandatory* settings are marked with an asterisk <br><br><br>
+            Name* (can contain latin letters, digits, hyphens and underscores): <input type="text" id="name"> <br><br>
+            Colour*: <input type="color" id="colour"> <br><br>
+            Behaviour*: <select id="behaviour">
+                <option value="behaviors.POWDER">Powder</option>
+                <option value="behaviors.STURDYPOWDER">Sturdy Powder</option>
+                <option value="behaviors.AGPOWDER">Antigravity Powder</option>
+                <option value="behaviors.LIQUID">Liquid</option>
+                <option value="behaviors.SUPERFLUID">Superfluid</option>
+                <option value="behaviors.AGLIQUID">Antigravity Liquid</option>
+                <option value="behaviors.WALL">Wall</option>
+                <option value="behaviors.GAS">Gas</option>
+                <option value="behaviors.DGAS">Gas (deletes itself after a while)</option>
+                <option value="behaviors.SUPPORT">Support</option>
+                <option value="behaviors.SUPPORTPOWDER">Support Powder</option>
+                <option value="behaviors.FOAM">Foam</option>
+                <option value="behaviors.BUBBLE">Bubble</option>
+                <option value="behaviors.MOLTEN">Molten</option>
+                <option value="behaviors.BOUNCY">Bouncy</option>
+            </select> <br><br>
+            Category*: <select id="category">
+                <option>Land</option>
+                <option>Liquids</option>
+                <option>Life</option>
+                <option>Powders</option>
+                <option>Solids</option>
+                <option>Energy</option>
+                <option>Weapons</option>
+                <option>Gases</option>
+                <option>Food</option>
+                <option>Machines</option>
+                <option>Special</option>
+            </select> <br><br>
+            State*: <select id="state">
+                <option>Solid</option>
+                <option>Liquid</option>
+                <option>Gas</option>
+            </select> <br><br>
+            Melting Point: <input type="number" id="melting_point"> <br>
+            When melting, turn into (raw element name): <input type="text" id="melting_turn_into"> <br><br>
+            Freezing Point: <input type="number" id="freezing_point"> <br>
+            When freezing, turn into (raw element name): <input type="text" id="freezing_turn_into"> <br><br>
+            Density (kg/m<sup>3</sup>): <input type="number" id="density"> <br><br>
+            Hide element from toolbar? <input type="checkbox" id="hidden"> <br><br>
+            Hardness (0-1): <input type="range" id="hardness" min="0" max="1" step="0.01"> <br>
+            When broken, turn into (raw element name): <input type="text" id="broken_turn_into"> <br><br>
+            Likelihood of burning (0-100): <input type="range" id="burning_likelihood" min="0" max="100" step="1"> <br>
+            Burn time (in ticks): <input type="number" id="burn_time"> <br>
+            When burned, burn into (raw element name): <input type="text" id="burning_turn_into"> <br><br>
+            Reactions: <div id="reactions">
+                <button id="create_new_reaction" onclick="parentNode.appendChild(create_new_reaction_element())">Create New Reaction</button> <br><br>
+            </div>
+        </div>
+        <br>
+        <button id="generate">Generate Code</button>
+        <br>
+        <pre id="code">
+        </pre>
+        <br><br><br>
+        <footer>Made with &lt;3 by BatteRaquette58 <a href="https://github.com/BatteRaquette581/sandboxels-mod-maker/">GitHub link</a></footer>
+    </div>
+    <script src="index.js" type="module"></script>
+</body>
+</html>
